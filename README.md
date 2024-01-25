@@ -1,48 +1,73 @@
-# SpotMusic/readme.md
-
 # Projeto SpotMusic
 
-Este é um repositório monorepo para o projeto SpotMusic. Abaixo está uma breve descrição de cada projeto e as tecnologias utilizadas.
+Este repositório é um monorepo para a plataforma SpotMusic, composto por diferentes projetos em várias linguagens. Abaixo estão breves descrições de cada projeto e as tecnologias utilizadas, organizados em categorias para aplicativos de artistas, ouvintes e aplicações internas.
 
-## SpotMusicApi
+## **Plataforma para Artistas**
 
-- **Descrição:** Uma web API em Python com Flask para o backend do SpotMusic.
-- **Tecnologias:** Python, Flask.
-- **Instruções de Instalação e Uso:** Consulte o [readme.md em SpotMusicApi](SpotMusicApi/readme.md).
+### MusicStudioWeb
 
-## SpotMusicPlayerApi
-
-- **Descrição:** Uma API em Rust para streaming de música, utilizada pelo app de reprodução de música.
-- **Tecnologias:** Rust.
-- **Instruções de Instalação e Uso:** Consulte o [readme.md em SpotMusicPlayerApi](SpotMusicPlayerApi/readme.md).
-
-## SpotMusicWebPlayer
-
-- **Descrição:** Aplicação web em ReactJS, trata-se de um player de música utilizado pelos clientes da SpotMusic.
+- **Descrição:** Aplicação web em ReactJS, um sistema de gerenciamento de playlist para artistas.
 - **Tecnologias:** ReactJS.
-- **Instruções de Instalação e Uso:** Consulte o [readme.md em SpotMusicWebPlayer](SpotMusicWebPlayer/readme.md).
+- **Instruções de Instalação e Uso:** Consulte o [readme.md em MusicStudioWeb](MusicStudioWeb/readme.md).
 
-## SpotMusicMobPlayer
+### MusicStudioBackoffice
 
-- **Descrição:** Aplicação mobile feita em ReactNative, trata-se de um player de música utilizado pelos clientes da SpotMusic.
+- **Descrição:** Aplicação web em ReactJS, um sistema de gerenciamento interno para inscrições de artistas, faturamento, etc., utilizado apenas por funcionários do SpotMusic.
+- **Tecnologias:** ReactJS.
+- **Instruções de Instalação e Uso:** Consulte o [readme.md em MusicStudioWeb](MusicStudioWeb/readme.md).
+
+### MusicStudioApi
+
+- **Descrição:** Uma API web em Python com Flask para o backend de aplicações SpotMusicStudio.
+- **Tecnologias:** Python, Flask.
+- **Instruções de Instalação e Uso:** Consulte o [readme.md em MusicStudioApi](MusicStudioApi/readme.md).
+
+## **Plataforma para Ouvintes**
+
+### MusicPlayerApi
+
+- **Descrição:** Uma API web em Python com Flask para o backend dos reprodutores de música SpotMusic.
+- **Tecnologias:** Python, Flask.
+- **Instruções de Instalação e Uso:** Consulte o [readme.md em MusicPlayerApi](MusicPlayerApi/readme.md).
+
+### MusicPlayerWeb
+
+- **Descrição:** Aplicação web em ReactJS, um player de música utilizado pelos clientes da SpotMusic.
+- **Tecnologias:** ReactJS.
+- **Instruções de Instalação e Uso:** Consulte o [readme.md em MusicPlayerWeb](MusicPlayerWeb/readme.md).
+
+### MusicPlayerMob
+
+- **Descrição:** Aplicação mobile feita em ReactNative, um player de música utilizado pelos clientes da SpotMusic.
 - **Tecnologias:** ReactNative.
-- **Instruções de Instalação e Uso:** Consulte o [readme.md em SpotMusicMobPlayer](SpotMusicMobPlayer/readme.md).
+- **Instruções de Instalação e Uso:** Consulte o [readme.md em MusicPlayerMob](MusicPlayerMob/readme.md).
 
-## Configuração de Docker
+## **Bastidores**
+
+### MusicCodeService
+
+- **Descrição:** Um serviço em Rust para codificar arquivos de áudio em diversos formatos e qualidades.
+- **Tecnologias:** Rust.
+- **Instruções de Instalação e Uso:** Consulte o [readme.md em MusicCodeService](MusicCodeService/readme.md).
+
+
+## **Ambiente de desenvolvimento**
+
+### Configuração de Docker
 
 Cada projeto possui um arquivo Dockerfile para facilitar a criação de containers.
 
-## CI/CD via GitHub Actions
+### CI/CD via GitHub Actions
 
 O repositório está configurado com GitHub Actions para automação de CI/CD. Consulte o arquivo [.github/workflows/ci-cd.yaml](.github/workflows/ci-cd.yaml) para mais detalhes.
 
-## Configuração Terraform
+### Configuração Terraform
 
 O diretório [terraform/](terraform/) contém os arquivos necessários para a configuração do Terraform.
 
 Para mais informações específicas de cada projeto, consulte os respectivos arquivos readme.md nas pastas dos projetos.
 
-## Executando o Ambiente com Docker Compose
+## **Executando o Ambiente com Docker Compose**
 
 Certifique-se de ter o Docker e o Docker Compose instalados em sua máquina.
 
