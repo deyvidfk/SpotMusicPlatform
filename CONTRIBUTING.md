@@ -1,4 +1,3 @@
-```markdown
 # Contribuindo para o Projeto
 
 Bem-vindo! Agradecemos por considerar contribuir para o projeto. As contribuições ajudam a melhorar a qualidade do software e a torná-lo mais útil para todos.
