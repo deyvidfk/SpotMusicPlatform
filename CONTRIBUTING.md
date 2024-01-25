@@ -1,5 +1,3 @@
-Claro! Vamos expandir o arquivo `CONTRIBUTING.md` com informações sobre o GitLab Flow e Commitlint:
-
 ```markdown
 # Contribuindo para o Projeto
 
