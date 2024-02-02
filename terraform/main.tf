@@ -14,8 +14,16 @@ module "vpc" {
 
 # Configuração do S3 para arquivos de áudio
 resource "aws_s3_bucket" "audio_files" {
-  bucket = var.s3_bucket_name
+  bucket = "your_bucket_name"
   acl    = "private"
+
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = "AES256"
+      }
+    }
+  }
 }
 
 # Configuração do ElastiCache for Redis
@@ -24,7 +32,6 @@ resource "aws_elasticache_cluster" "redis_cluster" {
   engine               = "redis"
   node_type            = "cache.t2.micro"
   num_cache_nodes     = 1
-  parameter_group_name = "default.redis3.2.cluster.on"
 
   subnet_group_name = module.vpc.default_subnet_group_name
 }
@@ -40,7 +47,6 @@ resource "aws_db_instance" "rds_instance" {
   name                  = var.rds_name
   username              = var.rds_username
   password              = var.rds_password
-  parameter_group_name  = "default.mysql5.7"
   publicly_accessible   = false
   skip_final_snapshot   = true
   backup_retention_period = 7
@@ -58,6 +64,9 @@ resource "aws_ecs_cluster" "ecs_cluster" {
 # Configuração do ECR (Elastic Container Registry)
 resource "aws_ecr_repository" "spotmusic_repo" {
   name = "spotmusic-repo"
+  image_scanning_configuration {
+    scan_on_push = true
+  }
 }
 
 # Configuração do AWS Secrets Manager
@@ -181,6 +190,8 @@ resource "aws_cloudfront_distribution" "cdn_distribution" {
         forward = "none"
       }
     }
+
+    viewer_protocol_policy = "redirect-to-https"  # Adicione esta linha para redirecionar HTTP para HTTPS
   }
 
   origin {
